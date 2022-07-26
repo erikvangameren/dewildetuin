@@ -16,7 +16,16 @@ jobs:
     - name: Fetch latest data
       run: |-
         curl https://www.nrc.nl/feeds/wilde-tuin/kaart.csv > kaart.csv
-        
+    - task: PythonScript@0
+      inputs:
+        scriptSource: 'filePath' # Options: filePath, inline
+        scriptPath: filter_kaartdata.py # Required when scriptSource == filePath
+        #script: # Required when scriptSource == inline
+        #arguments: # Optional
+        #pythonInterpreter: # Optional
+        #workingDirectory: # Optional
+        #failOnStderr: false # Optional
+
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
