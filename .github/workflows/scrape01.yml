@@ -18,9 +18,17 @@ jobs:
         curl https://www.nrc.nl/feeds/wilde-tuin/kaart.csv > kaart.csv
     - task: PythonScript@0
       inputs:
-        scriptSource: 'filePath' # Options: filePath, inline
-        scriptPath: /.github/workflows/filter_kaartdata.py # Required when scriptSource == filePath
-        #script: # Required when scriptSource == inline
+        scriptSource: 'inline' # Options: filePath, inline
+        #scriptPath: /.github/workflows/filter_kaartdata.py # Required when scriptSource == filePath
+        script:
+          import matplotlib.pyplot as plt
+          import pandas as pd
+          import numpy as np
+          url1 = 'https://www.nrc.nl/feeds/wilde-tuin/kaart.csv'
+          df = pd.read_csv(url1)
+          df.loc[(df['soortgroep'] != 'Planten') & (df['soortgroep'] != 'Vogels')]
+          df = df[['datum','soort','soortgroep','foto']]
+          df.to_csv(r'beestjesselectie.csv', index = True)# Required when scriptSource == inline
         #arguments: # Optional
         #pythonInterpreter: # Optional
         #workingDirectory: # Optional
