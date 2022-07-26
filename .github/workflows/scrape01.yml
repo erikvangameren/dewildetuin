@@ -19,7 +19,7 @@ jobs:
     - task: PythonScript@0
       inputs:
         scriptSource: 'filePath' # Options: filePath, inline
-        scriptPath: filter_kaartdata.py # Required when scriptSource == filePath
+        scriptPath: /.github/workflows/filter_kaartdata.py # Required when scriptSource == filePath
         #script: # Required when scriptSource == inline
         #arguments: # Optional
         #pythonInterpreter: # Optional
