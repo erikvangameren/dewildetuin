@@ -20,7 +20,7 @@ jobs:
       inputs:
         scriptSource: 'inline' # Options: filePath, inline
         #scriptPath: /.github/workflows/filter_kaartdata.py # Required when scriptSource == filePath
-        script:
+        script: |-
           import matplotlib.pyplot as plt
           import pandas as pd
           import numpy as np
