@@ -16,7 +16,7 @@ jobs:
     - name: Fetch latest data
       run: |-
         curl https://www.nrc.nl/feeds/wilde-tuin/kaart.csv > kaart.csv
-        filter_kaartdata.py
+        
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
@@ -25,3 +25,13 @@ jobs:
         timestamp=$(date -u)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
+# Run a Python file or inline script
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filter_kaartdata.py' # Options: filePath, inline
+    #scriptPath: # Required when scriptSource == filePath
+    #script: # Required when scriptSource == inline
+    #arguments: # Optional
+    #pythonInterpreter: # Optional
+    #workingDirectory: # Optional
+    #failOnStderr: false # Optional
