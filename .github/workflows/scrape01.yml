@@ -20,7 +20,9 @@ jobs:
       run: conda install pandas
     - name: pythonscript uitvoeren
       shell: python
-      run: filter_kaartdata.py
+      run: |
+        pandas
+        filter_kaartdata.py
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
