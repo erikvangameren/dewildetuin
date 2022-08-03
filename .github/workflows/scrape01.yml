@@ -30,7 +30,6 @@ jobs:
         "df=df[['datum','soort','soortgroep','foto']]"
         "print(df.head(10))"
         "df.to_csv(r'beestjesselectie.csv',index=True)"
-        beestjesselectie.csv > beestjesselectie.csv
     - name: uploaden bestand
       uses: actions/upload-artifact@v3
       with:
