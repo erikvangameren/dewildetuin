@@ -24,13 +24,13 @@ jobs:
       shell: python
       run: |
         python -c
-        "import pandas as pd
-        url1='https://www.nrc.nl/feeds/wilde-tuin/kaart.csv'
-        df=pd.read_csv(url1)
-        df.loc[(df['soortgroep']!='Planten') & (df['soortgroep']!='Vogels')]
-        df=df[['datum','soort','soortgroep','foto']]
-        print(df.head(10))
-        df.to_csv(r'beestjesselectie.csv',index=True)"
+        "import pandas as pd"
+        "url1='https://www.nrc.nl/feeds/wilde-tuin/kaart.csv'"
+        "df=pd.read_csv(url1)"
+        "df.loc[(df['soortgroep']!='Planten') & (df['soortgroep']!='Vogels')]"
+        "df=df[['datum','soort','soortgroep','foto']]"
+        "print(df.head(10))"
+        "df.to_csv(r'beestjesselectie.csv',index=True)"
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
