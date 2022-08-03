@@ -31,6 +31,7 @@ jobs:
         "print(df.head(10))"
         "df.to_csv(r'beestjesselectie.csv',index=True)"
     - name: uploaden bestand
+      uses: actions/upload-artifact@v3
       with:
         name: de beestjes
         path: beestjesselectie.csv
