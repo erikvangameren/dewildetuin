@@ -22,7 +22,7 @@ jobs:
       run: python -c "import sys; print(sys.version)"
     - name: Pythonscript uitvoeren
       shell: python
-      run: python filter_kaartdata.py
+      run: python3 filter_kaartdata.py
     - name: uploaden bestand
       uses: actions/upload-artifact@v3
       with:
