@@ -22,7 +22,13 @@ jobs:
       run: python -c "import sys; print(sys.version)"
     - name: Pythonscript uitvoeren
       shell: python
-      run: python3 filter_kaartdata.py
+      run: |
+        "import pandas as pd"
+        "url1='https://www.nrc.nl/feeds/wilde-tuin/kaart.csv'"
+        "df=pd.read_csv(url1)"
+        "df.loc[(df['soortgroep']!='Planten') & (df['soortgroep']!='Vogels')]"
+        "df=df[['datum','soort','soortgroep','foto']]"
+        "df.to_csv(r'beestjesselectie.csv',index=True)"
     - name: uploaden bestand
       uses: actions/upload-artifact@v3
       with:
